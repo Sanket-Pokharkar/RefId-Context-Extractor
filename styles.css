@@ -1,0 +1,244 @@
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --btn: #2563eb;
+  --btn2: #10b981;
+  --danger: #ef4444;
+  --panel: #ffffff;
+  --shadow: 0 10px 28px rgba(2, 6, 23, 0.06);
+  --hl: #87ceeb; /* skyblue */
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.container { 
+  width: 100%; 
+  max-width: none; 
+  margin: 20px 0; 
+  padding: 0 16px; 
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+h1 { 
+  margin: 0; 
+  font-size: 22px; 
+  letter-spacing: 0.2px; 
+}
+
+.sub { 
+  color: var(--muted); 
+  margin: 6px 0 16px; 
+  font-size: 13px; 
+}
+
+.row { 
+  display: flex; 
+  gap: 12px; 
+  flex-wrap: wrap; 
+  align-items: flex-end; 
+}
+
+.field { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+  min-width: 220px; 
+  flex: 1 1 auto; 
+}
+
+label { 
+  color: var(--muted); 
+  font-size: 12px; 
+}
+
+input[type="text"], 
+input[type="number"], 
+input[type="file"] {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  border-radius: 10px;
+  outline: none;
+}
+
+input[type="text"]:focus, 
+input[type="number"]:focus {
+  border-color: #bfd3ff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+}
+
+.flags { 
+  display: flex; 
+  gap: 16px; 
+  align-items: center; 
+  color: var(--muted); 
+  font-size: 13px; 
+}
+
+.flags label { 
+  display: flex; 
+  align-items: center; 
+  gap: 6px; 
+  cursor: pointer; 
+}
+
+.toolbar { 
+  display: flex; 
+  gap: 10px; 
+  align-items: center; 
+  flex-wrap: wrap; 
+  margin: 12px 0 8px; 
+}
+
+.btn {
+  background: var(--btn);
+  color: white;
+  border: 1px solid transparent;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .04s ease, filter .2s ease;
+}
+
+.btn:hover { 
+  filter: brightness(1.05); 
+}
+
+.btn:active { 
+  transform: translateY(1px); 
+}
+
+.btn.secondary { 
+  background: var(--btn2); 
+}
+
+.btn.ghost { 
+  background: #fff; 
+  color: var(--text); 
+  border: 1px solid var(--border); 
+}
+
+.btn:disabled { 
+  opacity: 0.6; 
+  cursor: not-allowed; 
+}
+
+.pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  margin-left: auto;
+}
+
+/* OUTPUT PANEL: fixed height + internal scroll only */
+.output-wrap {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  padding: 10px;
+  height: clamp(260px, 50vh, 520px);
+  overflow: auto;
+}
+
+pre#output {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.35;
+  outline: none;
+  padding-right: 6px;
+}
+
+pre#output:focus {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .18);
+  border-radius: 6px;
+}
+
+.hl { 
+  background: var(--hl); 
+  color: #000; 
+  padding: 0 .2em; 
+  border-radius: 3px; 
+}
+
+.hl-debit { 
+  background: #ef4444; 
+  color: #fff; 
+  padding: 0 .2em; 
+  border-radius: 3px; 
+}
+
+.hl-credit { 
+  background: #f97316; 
+  color: #fff; 
+  padding: 0 .2em; 
+  border-radius: 3px; 
+}
+
+.hl-fees { 
+  background: #ec4899; 
+  color: #fff; 
+  padding: 0 .2em; 
+  border-radius: 3px; 
+}
+
+.hl-ba { 
+  background: #3b82f6; 
+  color: #fff; 
+  padding: 0 .2em; 
+  border-radius: 3px; 
+}
+
+.footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status { 
+  color: var(--muted); 
+  font-size: 13px; 
+}
+
+.status.ok { 
+  color: #16a34a; 
+}
+
+.status.err { 
+  color: var(--danger); 
+}
